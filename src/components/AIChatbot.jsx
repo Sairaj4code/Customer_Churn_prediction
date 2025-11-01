@@ -73,7 +73,11 @@ const AIChatbot = () => {
 
     try {
       // Call the server-side API proxy
-      const response = await fetch('/api/chat', {
+      // Get the base URL from environment variables
+      const API_URL = import.meta.env.VITE_API_BASE_URL || '';
+
+      // Call the server-side API proxy
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

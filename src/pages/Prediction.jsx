@@ -76,7 +76,10 @@ const Prediction = () => {
       monthlyCharges: formData.monthlyCharges,
     };
 
-      const response = await axios.post("/api/predict", orderedInput);
+      // Get the base URL from environment variables
+      const API_URL = import.meta.env.VITE_API_BASE_URL || '';
+
+      const response = await axios.post(`${API_URL}/api/predict`, orderedInput);
 
       console.log('Received prediction data:', response.data);
       
